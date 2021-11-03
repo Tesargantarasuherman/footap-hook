@@ -1,0 +1,13 @@
+.navbar-bottom{
+    background-color: #16a085 !important;
+    color:white;
+    padding: -20px !important;
+    border-radius: 10px;
+}
+.nav-link{
+    font-size: 14px !important;
+}
+.font-large{
+    font-size: 16px !important;
+    font-weight: bold;
+}

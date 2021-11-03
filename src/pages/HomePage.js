@@ -8,11 +8,9 @@ import NavbarBottom from '../components/NavbarBottom/NavbarBottom'
 export default function HomePage() {
     return (
         <div>
-            <Navbar />
             <Carousel />
             <FormCari />
             <Card />
-            <NavbarBottom />
         </div>
     )
 }
