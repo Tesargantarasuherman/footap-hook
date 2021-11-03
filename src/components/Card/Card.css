@@ -5,3 +5,30 @@
 .card-text{
     font-size: 14px !important;
 }
+.card-title-price{
+    background-color: whitesmoke !important;
+    position: absolute;
+    text-shadow: 2px 2px white!important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    padding: 5px;
+    margin: 5px 10px;
+    border-radius: 20px;
+    color: #16a085 !important;
+}
+.rating-card{
+    position: absolute;
+    bottom: 10px;
+    right: 5px;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    padding: 5px;
+    margin: 5px 10px;
+    border-radius: 20px;
+    color: #f1c40f !important;
+}
+.btn-booking{
+    background-color: #16a085 !important;
+    color: white !important;
+    border-radius: 20px;
+}
