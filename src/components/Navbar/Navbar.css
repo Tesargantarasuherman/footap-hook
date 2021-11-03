@@ -1,0 +1,15 @@
+.navbar{
+    padding: 5px 10px !important;
+}
+.color-navbar{
+    background-color: #27ae60 !important;
+}
+.border-radius-navbar{
+    border-radius: 10px ;
+}
+.font-navbar{
+    font-size: 14px!important;
+}
+.nav-link{
+    font-size: 14px!important;
+}

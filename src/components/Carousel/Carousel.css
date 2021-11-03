@@ -1,0 +1,7 @@
+.carousel-inner{
+    height: 400px !important;
+    border-radius: 10px !important;
+}
+.carousel-item img{
+    object-fit: scale-down;
+}

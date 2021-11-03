@@ -1,0 +1,22 @@
+.form-cari{
+    background-color: #27ae60 !important;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+.lnr-xs{
+    font-size: 10px !important;
+}
+.btn-cari{
+    background-color: #2ecc71 !important;
+    color: white;
+    border-radius: 20px;
+}
+.input-group-text{
+    border-radius: 20px 0px 0px 20px !important;
+    background-color: #27ae60 !important;
+}
+.form-color-hijau{
+    background-color: #16a085 !important;
+    color: white !important;
+    border-radius: 20px;
+}
