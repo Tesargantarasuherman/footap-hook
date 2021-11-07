@@ -14,6 +14,9 @@ export default function BookingPage() {
             'jam': jam.jam
         }
         setprice([...price,_price])
+        settotal_price(
+            total_price + 1000
+        )
         set_button(button)
     }
 
@@ -84,12 +87,13 @@ export default function BookingPage() {
                         {
                             price.map(price => {
                                 return (
-                                    <p className="card-text">Total Waktu {price.jam} Jam</p>
+                                    <p className="card-text">Waktu Main Jam {price.jam}</p>
                                 )
                             })
                         }
                         <hr />
                         <p>Total Harga</p>
+                        <p>{total_price}</p>
                         <a href="#" className="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
