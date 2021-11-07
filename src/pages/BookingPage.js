@@ -4,29 +4,20 @@ import MonthBooking from '../components/MonthBooking/MonthBooking';
 
 export default function BookingPage() {
     const [state, setstate] = useState([])
-    const [price, setprice] = useState(0)
+    const [price, setprice] = useState([])
     const [button, setbutton] = useState(false)
-    const [editing, setEditing] = useState(false)
-    const initialFormState = { id: null, name: '', username: '' }
-    const [currentUser, setCurrentUser] = useState(initialFormState)
+    const [total_price, settotal_price] = useState(0)
 
-    const editRow = (jam) => {
-        setEditing(true)
-      
-        setCurrentUser({ id: jam.id, status: jam.status, jam: jam.jam })
-      }
-      const updateUser = (id, updatedUser) => {
-        setEditing(false)
-      
-        setUsers(users.map((user) => (user.id === id ? updatedUser : user)))
-      }
-    const set_Price =(button)=>{
-        setprice(
-            price + 1,
-        )
+    const set_Price = (jam) => {
+        let _price = {
+            'nama': 'lorem',
+            'jam': jam.jam
+        }
+        setprice([...price,_price])
         set_button(button)
     }
-    const set_button =(button)=>{
+
+    const set_button = (button) => {
         setbutton(
             button = !button
         )
@@ -80,7 +71,7 @@ export default function BookingPage() {
                     {
                         state.map(jam => {
                             return (
-                                <button type="button" onClick={()=>set_Price(button)} className="btn btn-success mx-2 my-2 px-2 " {...button ?'disabled' :''} style={{ width: '40px' }}>{jam.jam}</button>
+                                <button type="button" onClick={() => set_Price(jam)} className="btn btn-success mx-2 my-2 px-2 " {...button ? 'disabled' : ''} style={{ width: '40px' }}>{jam.jam}</button>
                             )
                         })
                     }
@@ -90,8 +81,14 @@ export default function BookingPage() {
                 <div className="card" style={{ width: '18rem' }}>
                     <div className="card-body">
                         <h5 className="card-title">Ringkasan Harga</h5>
-                        <p className="card-text">Total Waktu {price} Jam</p>
-                        <hr/>
+                        {
+                            price.map(price => {
+                                return (
+                                    <p className="card-text">Total Waktu {price.jam} Jam</p>
+                                )
+                            })
+                        }
+                        <hr />
                         <p>Total Harga</p>
                         <a href="#" className="btn btn-primary">Go somewhere</a>
                     </div>
