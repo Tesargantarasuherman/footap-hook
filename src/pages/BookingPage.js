@@ -13,7 +13,7 @@ export default function BookingPage() {
             'nama': 'lorem',
             'jam': jam.jam
         }
-        setprice([...price,_price])
+        setprice([...price, _price])
         settotal_price(
             total_price + 1000
         )
@@ -28,32 +28,33 @@ export default function BookingPage() {
     const getTanggal = () => {
         setstate(
             [
-                { 'id': 1, 'status': '', 'jam': 1 },
-                { 'id': 2, 'status': '', 'jam': 2 },
-                { 'id': 3, 'status': '', 'jam': 3 },
-                { 'id': 4, 'status': '', 'jam': 4 },
-                { 'id': 5, 'status': '', 'jam': 5 },
-                { 'id': 6, 'status': '', 'jam': 6 },
-                { 'id': 7, 'status': '', 'jam': 7 },
-                { 'id': 8, 'status': '', 'jam': 8 },
-                { 'id': 9, 'status': '', 'jam': 9 },
-                { 'id': 10, 'status': '', 'jam': 10 },
-                { 'id': 11, 'status': '', 'jam': 11 },
-                { 'id': 12, 'status': '', 'jam': 12 },
-                { 'id': 13, 'status': '', 'jam': 13 },
-                { 'id': 14, 'status': '', 'jam': 14 },
-                { 'id': 15, 'status': '', 'jam': 15 },
-                { 'id': 16, 'status': '', 'jam': 16 },
-                { 'id': 17, 'status': '', 'jam': 17 },
-                { 'id': 18, 'status': '', 'jam': 18 },
-                { 'id': 19, 'status': '', 'jam': 19 },
-                { 'id': 20, 'status': '', 'jam': 20 },
-                { 'id': 21, 'status': '', 'jam': 21 },
-                { 'id': 22, 'status': '', 'jam': 22 },
-                { 'id': 23, 'status': '', 'jam': 23 },
-                { 'id': 24, 'status': '', 'jam': 24 },
+                    { 'id': 1, 'status': '', 'jam': 1 },
+                    { 'id': 2, 'status': '', 'jam': 2 },
+                    { 'id': 3, 'status': '', 'jam': 3 },
+                    { 'id': 4, 'status': '', 'jam': 4 },
+                    { 'id': 5, 'status': '', 'jam': 5 },
+                    { 'id': 6, 'status': '', 'jam': 6 },
+                    { 'id': 7, 'status': '', 'jam': 7 },
+                    { 'id': 8, 'status': '', 'jam': 8 },
+                    { 'id': 9, 'status': '', 'jam': 9 },
+                    { 'id': 10, 'status': '', 'jam': 10 },
+                    { 'id': 11, 'status': '', 'jam': 11 },
+                    { 'id': 12, 'status': '', 'jam': 12 },
+                    { 'id': 13, 'status': '', 'jam': 13 },
+                    { 'id': 14, 'status': '', 'jam': 14 },
+                    { 'id': 15, 'status': '', 'jam': 15 },
+                    { 'id': 16, 'status': '', 'jam': 16 },
+                    { 'id': 17, 'status': '', 'jam': 17 },
+                    { 'id': 18, 'status': '', 'jam': 18 },
+                    { 'id': 19, 'status': '', 'jam': 19 },
+                    { 'id': 20, 'status': '', 'jam': 20 },
+                    { 'id': 21, 'status': '', 'jam': 21 },
+                    { 'id': 22, 'status': '', 'jam': 22 },
+                    { 'id': 23, 'status': '', 'jam': 23 },
+                    { 'id': 24, 'status': '', 'jam': 24 },
             ]
         )
+        console.log(state)
     }
 
     return (
