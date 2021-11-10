@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import './MonthBooking.css'
 export default function MonthBooking({ getTanggal }) {
+    const d = new Date();
+    let get_month = d.getMonth() ;
+    const [getMonth,setGetMonth] = useState(get_month)
     const [state, setstate] = useState([
         { 'id': 1, 'status': '', 'tanggal': 1 },
         { 'id': 2, 'status': '', 'tanggal': 2 },
@@ -42,12 +45,19 @@ export default function MonthBooking({ getTanggal }) {
                 </div>
                 <div className="col-md-6">
                     <div className="form-group my-2">
-                        <select className="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <select className="form-control">
+                            <option className={`${getMonth == '1' ?'selected' :''}`}>Januari</option>
+                            <option>Februari</option>
+                            <option>Maret</option>
+                            <option>April</option>
+                            <option>Mei</option>
+                            <option>Juni</option>
+                            <option>Juli</option>
+                            <option>Agustus</option>
+                            <option>September</option>
+                            <option>Oktober</option>
+                            <option  className={`${getMonth == 10 ?'selected' :''}`}>November</option>
+                            <option>Desember</option>
                         </select>
                     </div>
                 </div>

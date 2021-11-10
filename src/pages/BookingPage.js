@@ -28,7 +28,7 @@ export default function BookingPage() {
     const getTanggal = () => {
         setstate(
             [
-                    { 'id': 1, 'status': '', 'jam': 1 },
+                    { 'id': 1, 'status': 'booked', 'jam': 1 },
                     { 'id': 2, 'status': '', 'jam': 2 },
                     { 'id': 3, 'status': '', 'jam': 3 },
                     { 'id': 4, 'status': '', 'jam': 4 },
@@ -75,7 +75,7 @@ export default function BookingPage() {
                     {
                         state.map(jam => {
                             return (
-                                <button type="button" onClick={() => set_Price(jam)} className="btn btn-success mx-2 my-2 px-2 " {...button ? 'disabled' : ''} style={{ width: '40px' }}>{jam.jam}</button>
+                                <button type="button" onClick={() => set_Price(jam)} className={`btn btn-success mx-2 my-2 px-2 ${jam.status == "booked"? 'disabled' : ''} `}  style={{ width: '40px' }}>{jam.jam}</button>
                             )
                         })
                     }
