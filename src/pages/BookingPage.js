@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from '../components/Card/Card';
 import MonthBooking from '../components/MonthBooking/MonthBooking';
-
 export default function BookingPage() {
     const [state, setstate] = useState([])
     const [price, setprice] = useState([])
@@ -25,37 +24,48 @@ export default function BookingPage() {
             button = !button
         )
     }
-    const getTanggal = () => {
-        setstate(
-            [
-                    { 'id': 1, 'status': 'booked', 'jam': 1 },
-                    { 'id': 2, 'status': '', 'jam': 2 },
-                    { 'id': 3, 'status': '', 'jam': 3 },
-                    { 'id': 4, 'status': '', 'jam': 4 },
-                    { 'id': 5, 'status': '', 'jam': 5 },
-                    { 'id': 6, 'status': '', 'jam': 6 },
-                    { 'id': 7, 'status': '', 'jam': 7 },
-                    { 'id': 8, 'status': '', 'jam': 8 },
-                    { 'id': 9, 'status': '', 'jam': 9 },
-                    { 'id': 10, 'status': '', 'jam': 10 },
-                    { 'id': 11, 'status': '', 'jam': 11 },
-                    { 'id': 12, 'status': '', 'jam': 12 },
-                    { 'id': 13, 'status': '', 'jam': 13 },
-                    { 'id': 14, 'status': '', 'jam': 14 },
-                    { 'id': 15, 'status': '', 'jam': 15 },
-                    { 'id': 16, 'status': '', 'jam': 16 },
-                    { 'id': 17, 'status': '', 'jam': 17 },
-                    { 'id': 18, 'status': '', 'jam': 18 },
-                    { 'id': 19, 'status': '', 'jam': 19 },
-                    { 'id': 20, 'status': '', 'jam': 20 },
-                    { 'id': 21, 'status': '', 'jam': 21 },
-                    { 'id': 22, 'status': '', 'jam': 22 },
-                    { 'id': 23, 'status': '', 'jam': 23 },
-                    { 'id': 24, 'status': '', 'jam': 24 },
-            ]
-        )
-        console.log(state)
-    }
+    useEffect(async () => {
+        try{
+            const response = await fetch(`http://localhost:8000/futsal/ambiljadwal/1/2021-11-10`);
+            const json = await response.json();
+            setstate(json.data)
+            console.log(json.data)
+        }
+        catch(e){
+            console.error(e);
+        }
+    }, [])
+    // const getTanggal = () => {
+    //     setstate(
+    //         [
+    //                 { 'id': 1, 'status': 'booked', 'jam': 1 },
+    //                 { 'id': 2, 'status': '', 'jam': 2 },
+    //                 { 'id': 3, 'status': '', 'jam': 3 },
+    //                 { 'id': 4, 'status': '', 'jam': 4 },
+    //                 { 'id': 5, 'status': '', 'jam': 5 },
+    //                 { 'id': 6, 'status': '', 'jam': 6 },
+    //                 { 'id': 7, 'status': '', 'jam': 7 },
+    //                 { 'id': 8, 'status': '', 'jam': 8 },
+    //                 { 'id': 9, 'status': '', 'jam': 9 },
+    //                 { 'id': 10, 'status': '', 'jam': 10 },
+    //                 { 'id': 11, 'status': '', 'jam': 11 },
+    //                 { 'id': 12, 'status': '', 'jam': 12 },
+    //                 { 'id': 13, 'status': '', 'jam': 13 },
+    //                 { 'id': 14, 'status': '', 'jam': 14 },
+    //                 { 'id': 15, 'status': '', 'jam': 15 },
+    //                 { 'id': 16, 'status': '', 'jam': 16 },
+    //                 { 'id': 17, 'status': '', 'jam': 17 },
+    //                 { 'id': 18, 'status': '', 'jam': 18 },
+    //                 { 'id': 19, 'status': '', 'jam': 19 },
+    //                 { 'id': 20, 'status': '', 'jam': 20 },
+    //                 { 'id': 21, 'status': '', 'jam': 21 },
+    //                 { 'id': 22, 'status': '', 'jam': 22 },
+    //                 { 'id': 23, 'status': '', 'jam': 23 },
+    //                 { 'id': 24, 'status': '', 'jam': 24 },
+    //         ]
+    //     )
+    //     console.log(state)
+    // }
 
     return (
         <div className="row">
@@ -63,7 +73,7 @@ export default function BookingPage() {
                 <Card />
             </div>
             <div className="col-md-4">
-                <MonthBooking getTanggal={getTanggal} />
+                <MonthBooking getTanggal={null} />
             </div>
             <div className="col-md-4">
                 <div className="row">
