@@ -9,7 +9,7 @@ export default function BookingPage() {
     const [price, setprice] = useState([])
     const [button, setbutton] = useState(false)
     const [total_price, settotal_price] = useState(0)
-    const [form, setForm] = useState({ bulan: '', tanggal: '' });
+    const [form, setForm] = useState({ bulan: '', tanggal: '', tahun: '' });
 
     const handleChange = (e) => {
         setForm({
@@ -20,11 +20,11 @@ export default function BookingPage() {
     const getTanggal = (tanggal) => {
         setForm({
             ...form, tanggal: tanggal
-        }, getTanggal_() )
+        }, getTanggal_())
     }
-    const getTanggal_ =()=> {
+    const getTanggal_ = () => {
         console.log('jalan')
-        axios.get(`http://localhost:8000/futsal/ambiljadwal/1/2021-${form.bulan}-${form.tanggal}`).then(res=>{
+        axios.get(`http://localhost:8000/futsal/ambiljadwal/1/${form.tahun}-${form.bulan}-${form.tanggal}`).then(res => {
             setstate(res.data.data)
         })
     }
@@ -38,6 +38,7 @@ export default function BookingPage() {
             total_price + 1000
         )
         set_button(button)
+        getTanggal_()
     }
 
     const set_button = (button) => {

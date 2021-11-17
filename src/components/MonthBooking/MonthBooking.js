@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import './MonthBooking.css'
 export default function MonthBooking(props) {
-    const d = new Date();
-    let get_month = d.getMonth() ;
-    const [getMonth,setGetMonth] = useState(get_month)
     const [state, setstate] = useState([
         { 'id': 1, 'status': '', 'tanggal': 1 },
         { 'id': 2, 'status': '', 'tanggal': 2 },
@@ -40,13 +37,10 @@ export default function MonthBooking(props) {
     return (
         <>
             <div className="row">
-                <div className="col-md-3">
-                    <button type="button" className="btn btn-success mx-2 my-2">&lsaquo;</button>
-                </div>
                 <div className="col-md-6">
                     <div className="form-group my-2">
                         <select onChange={props.handleChange} className="form-control" name="bulan">
-                            <option value={1} className={`${getMonth == '1' ?'selected' :''}`}>Januari</option>
+                            <option value={1}>Januari</option>
                             <option value={2}>Februari</option>
                             <option value={3}>Maret</option>
                             <option value={4}>April</option>
@@ -56,20 +50,26 @@ export default function MonthBooking(props) {
                             <option value={8}>Agustus</option>
                             <option value={9}>September</option>
                             <option value={10}>Oktober</option>
-                            <option value={11}  className={`${getMonth == 10 ?'selected' :''}`}>November</option>
+                            <option value={11}>November</option>
                             <option value={12} >Desember</option>
                         </select>
                     </div>
                 </div>
-                <div className="col-md-3">
-                    <button type="button" className="btn btn-success mx-2 my-2 float-right">&rsaquo;</button>
+                <div className="col-md-6">
+                    <div className="form-group my-2">
+                        <select onChange={props.handleChange} className="form-control" name="tahun">
+                            <option value={2021}>2021</option>
+                            <option value={2022}>2022</option>
+                            <option value={2023}>2023</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div className="d-flex justify-content-between flex-wrap">
                 {
                     state.map(tanggal => {
                         return (
-                            <button type="button" onClick={()=>props.getTanggal(tanggal.tanggal)} className={`btn button-month mx-2 my-2 px-2 ${tanggal.status == 'booked' ? 'booked' : ''} `} style={{ width: '40px' }}>{tanggal.tanggal}</button>
+                            <button type="button" onClick={() => props.getTanggal(tanggal.tanggal)} className={`btn button-month mx-2 my-2 px-2 ${tanggal.status == 'booked' ? 'booked' : ''} `} style={{ width: '40px' }}>{tanggal.tanggal}</button>
                         )
                     })
                 }
