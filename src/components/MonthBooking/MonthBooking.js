@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './MonthBooking.css'
-export default function MonthBooking(props) {
+
+const MonthBooking =(props)=> {
     const [state, setstate] = useState([
         { 'id': 1, 'status': '', 'tanggal': 1 },
         { 'id': 2, 'status': '', 'tanggal': 2 },
@@ -77,3 +78,4 @@ export default function MonthBooking(props) {
         </>
     )
 }
+export default MonthBooking

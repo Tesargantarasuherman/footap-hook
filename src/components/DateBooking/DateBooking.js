@@ -1,6 +1,6 @@
 import React from 'react'
 import './DateBooking.css'
-function DateBooking(props) {
+const  DateBooking =(props)=> {
     return (
         <>
             <div className="row">

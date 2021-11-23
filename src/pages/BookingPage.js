@@ -4,7 +4,7 @@ import Card from '../components/Card/Card';
 import DateBooking from '../components/DateBooking/DateBooking';
 import MonthBooking from '../components/MonthBooking/MonthBooking';
 
-export default function BookingPage() {
+const BookingPage = () => {
     const [state, setstate] = useState([])
     const [price, setprice] = useState([])
     const [button, setbutton] = useState(false)
@@ -20,7 +20,7 @@ export default function BookingPage() {
     const getTanggal = (tanggal) => {
         setForm({
             ...form, tanggal: tanggal
-        }, getTanggal_())
+        },getTanggal_())
     }
     const getTanggal_ = () => {
         console.log('jalan')
@@ -83,3 +83,4 @@ export default function BookingPage() {
         </div>
     )
 }
+export default BookingPage;
