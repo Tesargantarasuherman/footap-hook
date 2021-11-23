@@ -12,10 +12,11 @@ const BookingPage = () => {
     const [form, setForm] = useState({ bulan: '', tanggal: '', tahun: '' });
 
     const handleChange = (e) => {
+        const{name,value} = e.target
         setForm({
             ...form,
-            [e.target.name]: e.target.value
-        }, console.log(form))
+            [name]: value
+        })
     }
     const getTanggal = (tanggal) => {
         setForm({
@@ -23,7 +24,6 @@ const BookingPage = () => {
         },getTanggal_())
     }
     const getTanggal_ = () => {
-        console.log('jalan')
         axios.get(`http://localhost:8000/futsal/ambiljadwal/1/${form.tahun}-${form.bulan}-${form.tanggal}`).then(res => {
             setstate(res.data.data)
         })
@@ -46,9 +46,7 @@ const BookingPage = () => {
             button = !button
         )
     }
-    useEffect(async () => {
 
-    }, [])
 
     return (
         <div className="row">

@@ -59,6 +59,7 @@ const MonthBooking =(props)=> {
                 <div className="col-md-6">
                     <div className="form-group my-2">
                         <select onChange={props.handleChange} className="form-control" name="tahun">
+                            <option value={2020}>2020</option>
                             <option value={2021}>2021</option>
                             <option value={2022}>2022</option>
                             <option value={2023}>2023</option>
