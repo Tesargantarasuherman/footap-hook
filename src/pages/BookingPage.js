@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Card from '../components/Card/Card';
 import DateBooking from '../components/DateBooking/DateBooking';
 import MonthBooking from '../components/MonthBooking/MonthBooking';
+import { Base_URL } from '../utils/BaseUrl';
 
 const BookingPage = () => {
     const [state, setstate] = useState([])
@@ -24,7 +25,7 @@ const BookingPage = () => {
         },getTanggal_())
     }
     const getTanggal_ = () => {
-        axios.get(`http://localhost:8000/futsal/ambiljadwal/1/${form.tahun}-${form.bulan}-${form.tanggal}`).then(res => {
+        axios.get(`${Base_URL}/futsal/ambiljadwal/1/${form.tahun}-${form.bulan}-${form.tanggal}`).then(res => {
             setstate(res.data.data)
         },console.log(state))
     }
