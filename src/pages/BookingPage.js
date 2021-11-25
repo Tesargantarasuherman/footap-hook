@@ -26,7 +26,7 @@ const BookingPage = () => {
     const getTanggal_ = () => {
         axios.get(`http://localhost:8000/futsal/ambiljadwal/1/${form.tahun}-${form.bulan}-${form.tanggal}`).then(res => {
             setstate(res.data.data)
-        })
+        },console.log(state))
     }
     const set_Price = (jam) => {
         let _price = {
