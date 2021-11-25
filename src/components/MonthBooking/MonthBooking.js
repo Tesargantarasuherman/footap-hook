@@ -71,7 +71,7 @@ const MonthBooking =(props)=> {
                 {
                     state.map(tanggal => {
                         return (
-                            <button type="button" onClick={() => props.getTanggal(tanggal.tanggal)} className={`btn button-month mx-2 my-2 px-2 ${tanggal.status == 'booked' ? 'booked' : ''} `} style={{ width: '40px' }}>{tanggal.tanggal}</button>
+                            <button onClick={() => props.getTanggal(tanggal.tanggal)} className={`btn button-month mx-2 my-2 px-2 ${tanggal.status == 'booked' ? 'booked' : ''} `} style={{ width: '40px' }}>{tanggal.tanggal}</button>
                         )
                     })
                 }

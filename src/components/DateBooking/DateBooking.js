@@ -13,7 +13,7 @@ const DateBooking = (props) => {
                     props.state.length != 0 ? (
                         props.state.map(jam => {
                             return (
-                                <button type="button" onClick={() => props.set_Price(jam)} className={`btn btn-success mx-2 my-2 px-2 ${jam.status == "booked" ? 'disabled' : ''} `} style={{ width: '40px' }}>{jam.jam}</button>
+                                <button onClick={() => props.set_Price(jam)} className={`btn btn-success mx-2 my-2 px-2 ${jam.status == "booked" ? 'disabled' : ''} `} style={{ width: '40px' }}>{jam.jam}</button>
                             )
                         })
                     ) : (

@@ -8,7 +8,6 @@ import { Base_URL } from '../utils/BaseUrl';
 const BookingPage = () => {
     const [state, setstate] = useState([])
     const [price, setprice] = useState([])
-    const [button, setbutton] = useState(false)
     const [total_price, settotal_price] = useState(0)
     const [form, setForm] = useState({ bulan: '', tanggal: '', tahun: '' });
     const [formBooking, setFormBooking] = useState({ tanggal: '', jam: '' });
@@ -18,7 +17,7 @@ const BookingPage = () => {
         setForm({
             ...form,
             [name]: value
-        })
+        },console.log(form))
     }
     const getTanggal = (tanggal) => {
         setForm({
@@ -30,7 +29,11 @@ const BookingPage = () => {
             setstate(res.data.data)
         },console.log(state))
     }
+
     const set_Price = (jam) => {
+        // set form booking
+        _setFormBooking(jam.jam)
+        // end set form booking
         let _price = {
             'nama': 'lorem',
             'jam': jam.jam
@@ -39,15 +42,17 @@ const BookingPage = () => {
         settotal_price(
             total_price + 1000
         )
-        set_button(button)
         getTanggal_()
     }
 
-    const set_button = (button) => {
-        setbutton(
-            button = !button
-        )
+    const _setFormBooking =(jam)=>{
+        setFormBooking({
+            ...formBooking,
+            tanggal:`${form.tahun}-${form.bulan}-${form.tanggal}`,
+            jam:jam
+        },console.log(formBooking))
     }
+
 
 
     return (
