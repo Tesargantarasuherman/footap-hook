@@ -11,6 +11,7 @@ const BookingPage = () => {
     const [button, setbutton] = useState(false)
     const [total_price, settotal_price] = useState(0)
     const [form, setForm] = useState({ bulan: '', tanggal: '', tahun: '' });
+    const [formBooking, setFormBooking] = useState({ tanggal: '', jam: '' });
 
     const handleChange = (e) => {
         const{name,value} = e.target
