@@ -40,7 +40,7 @@ const MonthBooking =(props)=> {
             <div className="row">
                 <div className="col-md-6">
                     <div className="form-group my-2">
-                        <select onChange={props.handleChange} className="form-control" name="bulan">
+                        <select onChange={(e)=>props.handleChange(e)} className="form-control" name="bulan">
                             <option value={1}>Januari</option>
                             <option value={2}>Februari</option>
                             <option value={3}>Maret</option>
@@ -58,7 +58,7 @@ const MonthBooking =(props)=> {
                 </div>
                 <div className="col-md-6">
                     <div className="form-group my-2">
-                        <select onChange={props.handleChange} className="form-control" name="tahun">
+                        <select onChange={(e)=>props.handleChange(e)} className="form-control" name="tahun">
                             <option value={2020}>2020</option>
                             <option value={2021}>2021</option>
                             <option value={2022}>2022</option>

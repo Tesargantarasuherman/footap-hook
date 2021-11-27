@@ -1,91 +1,75 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import Card from '../components/Card/Card';
-import DateBooking from '../components/DateBooking/DateBooking';
-import MonthBooking from '../components/MonthBooking/MonthBooking';
-import { Base_URL } from '../utils/BaseUrl';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import Card from "../components/Card/Card";
+import DateBooking from "../components/DateBooking/DateBooking";
+import MonthBooking from "../components/MonthBooking/MonthBooking";
+import { Base_URL } from "../utils/BaseUrl";
 
 const BookingPage = () => {
-    const [state, setstate] = useState([])
-    const [price, setprice] = useState([])
-    const [total_price, settotal_price] = useState(0)
-    const [form, setForm] = useState({ bulan: '', tanggal: '', tahun: '' });
-    const [formBooking, setFormBooking] = useState({ tanggal: '', jam: '' });
+  const [state, setstate] = useState([]);
+  const [price, setprice] = useState([]);
+  const [total_price, settotal_price] = useState(0);
+  const [form, setForm] = useState({ bulan: "", tanggal: "", tahun: "" });
+  const [formBooking, setFormBooking] = useState({ tanggal: "", jam: "" });
 
-    const handleChange = (e) => {
-        const{name,value} = e.target
-        setForm({
-            ...form,
-            [name]: value
-        },console.log(form))
-    }
-    const getTanggal = (tanggal) => {
-        setForm({
-            ...form, tanggal: tanggal
-        },getTanggal_())
-    }
-    const getTanggal_ = () => {
-        axios.get(`${Base_URL}/futsal/ambiljadwal/1/${form.tahun}-${form.bulan}-${form.tanggal}`).then(res => {
-            setstate(res.data.data)
-        },console.log(state))
-    }
-
-    const set_Price = (jam) => {
-        // set form booking
-        _setFormBooking(jam.jam)
-        // end set form booking
-        let _price = {
-            'nama': 'lorem',
-            'jam': jam.jam
-        }
-        setprice([...price, _price])
-        settotal_price(
-            total_price + 1000
-        )
-        getTanggal_()
-    }
-
-    const _setFormBooking =(jam)=>{
-        setFormBooking({
-            ...formBooking,
-            tanggal:`${form.tahun}-${form.bulan}-${form.tanggal}`,
-            jam:jam
-        },console.log(formBooking))
-    }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm(
+      {
+        ...form,
+        [name]: value,
+      },
+      console.log(form)
+    );
+  };
+  const getTanggal = (tanggal) => {
+    setForm(
+      {
+        ...form,
+        tanggal: tanggal,
+      },
+      getTanggal_()
+    );
+  };
+  const getTanggal_ = () => {
+    axios
+      .get(
+        `${Base_URL}/futsal/ambiljadwal/1/${form.tahun}-${form.bulan}-${form.tanggal}`
+      )
+      .then((res) => {
+        setstate(res.data.data);
+      }, console.log(state));
+  };
 
 
+  const _setFormBooking = (jam) => {
+      let jam_booking = jam.jam
+    setFormBooking(
+      {
+        ...formBooking,
+        tanggal: `${form.tahun}-${form.bulan}-${form.tanggal}`,
+        jam: jam_booking,
+      },
+      axios
+        .post(`http://localhost:8000/futsal/tambahkeranjang/1/1`, formBooking)
+        .then((res) => {
+          console.log(res);
+        })
+    );
+  };
 
-    return (
-        <div className="row">
-            <div className="col-md-4">
-                <Card />
-            </div>
-            <div className="col-md-4">
-                <MonthBooking getTanggal={getTanggal} handleChange={handleChange} />
-            </div>
-            <div className="col-md-4">
-                <DateBooking set_Price={set_Price} state={state} />
-            </div>
-            <div className="col-md-12">
-                <div className="card" style={{ width: '18rem' }}>
-                    <div className="card-body">
-                        <h5 className="card-title">Ringkasan Harga</h5>
-                        {
-                            price.map(price => {
-                                return (
-                                    <p className="card-text">Waktu Main Jam {price.jam}</p>
-                                )
-                            })
-                        }
-                        <hr />
-                        <p>Total Harga</p>
-                        <p>{total_price}</p>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="row">
+      <div className="col-md-4">
+        <Card />
+      </div>
+      <div className="col-md-4">
+        <MonthBooking getTanggal={getTanggal} handleChange={handleChange} />
+      </div>
+      <div className="col-md-4">
+        <DateBooking _setFormBooking={_setFormBooking} state={state} />
+      </div>
+    </div>
+  );
+};
 export default BookingPage;
